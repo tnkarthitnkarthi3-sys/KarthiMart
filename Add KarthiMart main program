@@ -1,0 +1,76 @@
+import java.util.Scanner;
+public class KarthiMart {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Product[] products = {
+            new Product(1, "Laptop", 55000),
+            new Product(2, "Mobile Phone", 25000),
+            new Product(3, "Headphones", 1500),
+            new Product(4, "Smart Watch", 3000),
+            new Product(5, "Keyboard", 1200),
+            new Product(6, "Mouse", 700),
+            new Product(7, "Monitor", 12000),
+            new Product(8, "Tablet", 18000),
+            new Product(9, "Power Bank", 1500),
+            new Product(10, "Bluetooth Speaker", 2500),
+            new Product(11, "USB Cable", 300),
+            new Product(12, "Charger", 800),
+            new Product(13, "Pen Drive", 600),
+            new Product(14, "External Hard Disk", 5000),
+            new Product(15, "Web Camera", 2200),
+            new Product(16, "Printer", 9000),
+            new Product(17, "Router", 1800),
+            new Product(18, "Gaming Chair", 12000),
+            new Product(19, "Gaming Mouse", 1500),
+            new Product(20, "Gaming Keyboard", 2500),
+            new Product(21, "Earbuds", 2000),
+            new Product(22, "Microphone", 3500),
+            new Product(23, "Smart TV", 35000),
+            new Product(24, "Camera", 45000),
+            new Product(25, "Tripod Stand", 1800)
+        };
+        Cart cart = new Cart();
+        while (true) {
+            System.out.println("\n================================");
+            System.out.println("         KARTHIMART");
+            System.out.println("================================");
+            System.out.println("1. View Products");
+            System.out.println("2. Add to Cart");
+            System.out.println("3. View Cart");
+            System.out.println("4. Place Order");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+            if (choice == 1) {
+                System.out.println("\n===== KARTHIMART PRODUCTS =====");
+                for (Product product : products) {
+                    System.out.println(
+                        product.id + ". " +
+                        product.name + " - Rs." +
+                        product.price
+                    );
+                }
+            } else if (choice == 2) {
+                System.out.print("Enter Product ID: ");
+                int id = sc.nextInt();
+                if (id >= 1 && id <= products.length) {
+                    cart.addToCart(products[id - 1]);
+                } else {
+                    System.out.println("Invalid Product ID!");
+                }
+            } else if (choice == 3) {
+                cart.viewCart();
+            } else if (choice == 4) {
+                cart.placeOrder();
+            } else if (choice == 5) {
+                System.out.println(
+                    "Thank you for visiting KarthiMart!"
+                );
+                break;
+            } else {
+                System.out.println("Invalid choice!");
+            }
+        }
+        sc.close();
+    }
+}
