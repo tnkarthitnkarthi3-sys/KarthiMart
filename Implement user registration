@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class UserRegistration {
+
+    static Scanner sc = new Scanner(System.in);
+    static ArrayList<User> users = new ArrayList<>();
+
+    public static void main(String[] args) {
+
+        System.out.println("--- USER REGISTRATION ---");
+
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Create Username: ");
+        String username = sc.nextLine();
+
+        System.out.print("Create Password: ");
+        String password = sc.nextLine();
+
+        if (name.isEmpty() || username.isEmpty() || password.isEmpty()) {
+            System.out.println("Fields cannot be empty!");
+            return;
+        }
+
+        boolean exists = false;
+
+        for (User user : users) {
+            if (user.username.equals(username)) {
+                exists = true;
+                break;
+            }
+        }
+
+        if (exists) {
+            System.out.println("Username already exists!");
+        } else {
+            users.add(new User(name, username, password));
+            System.out.println("Registration successful!");
+        }
+    }
+}
