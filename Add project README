@@ -1,0 +1,18 @@
+# KarthiMart
+KarthiMart is a simple Java-based shopping cart application.
+## Features
+- View 25 products
+- Add products to cart
+- View cart
+- Calculate total amount
+- Place order
+- Clear cart after order
+## Technologies
+- Java
+- OOP
+- ArrayList
+## How to Run
+Compile:
+javac Product.java Cart.java KarthiMart.java
+Run:
+java KarthiMart
