@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+public class Cart {
+    ArrayList<Product> items = new ArrayList<>();
+    void addToCart(Product product) {
+        items.add(product);
+        System.out.println(product.name + " added to cart!");
+    }
+    void viewCart() {
+        if (items.isEmpty()) {
+            System.out.println("KarthiMart Cart is empty!");
+            return;
+        }
+        double total = 0;
+        System.out.println("\n========== KARTHIMART CART ==========");
+        for (Product product : items) {
+            System.out.println(
+                product.name + " - Rs." + product.price
+            );
+            total += product.price;
+        }
+        System.out.println("--------------------------------------");
+        System.out.println("Total Amount = Rs." + total);
+    }
+    void placeOrder() {
+        if (items.isEmpty()) {
+            System.out.println("KarthiMart Cart is empty!");
+            return;
+        }
+        double total = 0;
+        for (Product product : items) {
+            total += product.price;
+        }
+        System.out.println("\n========== KARTHIMART ORDER ==========");
+        System.out.println("Total Amount : Rs." + total);
+        System.out.println("Order placed successfully!");
+        System.out.println("Thank you for shopping with KarthiMart!");
+        items.clear();
+    }
+}
